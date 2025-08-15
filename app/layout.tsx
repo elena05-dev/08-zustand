@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: '08-zustand',
     description:
       'An application for storing, creating, deleting, and searching notes',
-    url: `http://localhost:3000/Home`,
+    url: `https://08-zustand-ibkv.vercel.app/`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/og-meta.jpg',

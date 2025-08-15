@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'not-found',
     description:
       'The page you are looking for does not exist or may have been moved',
-    url: 'http://localhost:3000/not-found',
+    url: 'https://08-zustand-ibkv.vercel.app/not-found',
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/og-meta.jpg',

@@ -10,8 +10,7 @@ import type { FetchNotesResponse, NoteTag } from '@/lib/api';
 import NoteList from '@/components/NoteList/NoteList';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
-import Modal from '@/components/Modal/Modal';
-import NoteForm from '@/components/NoteForm/NoteForm';
+
 import css from './NotesPage.module.css';
 
 const PER_PAGE = 12;
@@ -31,7 +30,6 @@ interface NotesClientProps {
 export default function NotesClient({ initialData, tag }: NotesClientProps) {
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const updateSearchQuery = useDebouncedCallback((newSearchQuery: string) => {
     setPage(1);
@@ -75,9 +73,6 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
             onPageChange={setPage}
           />
         )}
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
-          Create note +
-        </button>
       </header>
 
       {isLoading && <p>Loading...</p>}
@@ -90,12 +85,6 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
 
       {!isLoading && !isFetching && data && data.results.length > 0 && (
         <NoteList notes={data.results} />
-      )}
-
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm onClose={() => setIsModalOpen(false)} />
-        </Modal>
       )}
     </div>
   );

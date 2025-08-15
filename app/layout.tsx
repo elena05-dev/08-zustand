@@ -44,7 +44,7 @@ export default function RootLayout({
       <body className={roboto.variable}>
         <TanStackProvider>
           <Header />
-          <main style={{ position: 'relative' }}>
+          <main style={{ flex: '1 0 auto', position: 'relative' }}>
             {children}
             {modal}
           </main>

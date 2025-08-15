@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useDebouncedCallback } from 'use-debounce';
 import { fetchNotes } from '@/lib/api';
 import type { FetchNotesResponse, NoteTag } from '@/lib/api';
-
+import Link from 'next/link';
 import NoteList from '@/components/NoteList/NoteList';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
@@ -73,6 +73,9 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
             onPageChange={setPage}
           />
         )}
+        <Link href="/notes/action/create" className={css.button}>
+          Create note +
+        </Link>
       </header>
 
       {isLoading && <p>Loading...</p>}
